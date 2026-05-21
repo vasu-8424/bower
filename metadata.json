@@ -1,0 +1,6 @@
+{
+  "name": "BowerKitchen Vegetables",
+  "description": "Premium organic farm-fresh vegetables and handpicked grocery delivery in Karimnagar, India. Convenient WhatsApp ordering with hygienic contactless delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
