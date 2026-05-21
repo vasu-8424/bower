@@ -9,7 +9,7 @@ import * as LucideIcons from 'lucide-react';
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-brand-bg relative">
+    <section id="services" className="py-24 bg-brand-bg relative overflow-hidden">
       {/* Decorative background visual blob */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-10 w-[600px] h-32 bg-emerald-100/30 blur-3xl pointer-events-none rounded-full"></div>
 

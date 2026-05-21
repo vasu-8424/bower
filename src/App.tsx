@@ -39,10 +39,10 @@ function BowerLoader() {
 export default function App() {
   return (
     <CartProvider>
-      <div className="min-h-screen bg-brand-bg relative selection:bg-brand-light selection:text-brand-primary" id="app-root-shell">
+      <div className="min-h-screen bg-brand-bg relative selection:bg-brand-light selection:text-brand-primary overflow-x-hidden" id="app-root-shell">
         {/* Glowing floating circular shapes of green/yellow behind sections */}
-        <div className="absolute top-24 left-1/10 w-96 h-96 rounded-full bg-brand-light/10 blur-3xl pointer-events-none z-0"></div>
-        <div className="absolute top-1/2 right-1/10 w-80 h-80 rounded-full bg-brand-fresh/5 blur-3xl pointer-events-none z-0"></div>
+        <div className="absolute top-24 left-[10%] w-96 h-96 rounded-full bg-brand-light/10 blur-3xl pointer-events-none z-0"></div>
+        <div className="absolute top-1/2 right-[10%] w-80 h-80 rounded-full bg-brand-fresh/5 blur-3xl pointer-events-none z-0"></div>
 
         {/* Floating elements & navigational units */}
         <Navbar />

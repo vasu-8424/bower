@@ -19,7 +19,7 @@ export default function Gallery() {
   });
 
   return (
-    <section id="gallery" className="py-24 bg-brand-bg relative">
+    <section id="gallery" className="py-24 bg-brand-bg relative overflow-hidden">
       {/* Organic top wave */}
       <div className="absolute top-0 inset-x-0 h-10 w-full overflow-hidden pointer-events-none">
         <div className="w-full h-full bg-white rounded-b-[40px]"></div>

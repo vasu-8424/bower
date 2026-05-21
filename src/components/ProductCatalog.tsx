@@ -105,7 +105,7 @@ export default function ProductCatalog() {
   };
 
   return (
-    <section id="products" className="py-24 bg-brand-bg relative">
+    <section id="products" className="py-24 bg-brand-bg relative overflow-hidden">
       {/* Visual Organic Waves divider border */}
       <div className="absolute top-0 inset-x-0 h-10 w-full overflow-hidden pointer-events-none">
         <div className="w-full h-full bg-white rounded-b-[40px] shadow-xs"></div>

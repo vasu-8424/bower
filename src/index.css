@@ -45,12 +45,15 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   background-color: var(--color-brand-bg);
   color: var(--color-brand-dark);
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Glassmorphism Classes */

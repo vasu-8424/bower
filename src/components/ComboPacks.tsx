@@ -25,7 +25,7 @@ export default function ComboPacks() {
   };
 
   return (
-    <section id="combos" className="py-24 bg-white relative">
+    <section id="combos" className="py-24 bg-white relative overflow-hidden">
       {/* Curved SVG Divider for organic premium transitions */}
       <div className="absolute top-0 inset-x-0 h-10 w-full overflow-hidden pointer-events-none">
         <div className="w-full h-full bg-brand-bg rounded-b-[40px] shadow-xs"></div>

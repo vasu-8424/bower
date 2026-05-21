@@ -57,7 +57,7 @@ export default function ReviewSlider() {
   return (
     <section id="reviews" className="py-24 bg-white relative overflow-hidden">
       {/* Decorative botanical backdrop rings */}
-      <div className="absolute left-1/10 top-1/4 w-[500px] h-32 bg-emerald-50 rounded-full blur-3xl pointer-events-none -skew-y-12"></div>
+      <div className="absolute left-[10%] top-1/4 w-[500px] h-32 bg-emerald-50 rounded-full blur-3xl pointer-events-none -skew-y-12"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
