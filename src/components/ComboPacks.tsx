@@ -56,9 +56,9 @@ export default function ComboPacks() {
             return (
               <article
                 key={combo.id}
-                className={`rounded-[2.5rem] p-8 flex flex-col justify-between transition-all duration-350 relative shadow-md group ${
+                className={`rounded-[2.5rem] p-5 sm:p-8 flex flex-col justify-between transition-all duration-350 relative shadow-md group ${
                   isBestSeller
-                    ? 'bg-linear-to-b from-[#143016] to-[#2E7D32] text-white border-2 border-brand-light/30 shadow-emerald-950/20 shadow-2xl scale-105 z-10'
+                    ? 'bg-linear-to-b from-[#143016] to-[#2E7D32] text-white border-2 border-brand-light/30 shadow-emerald-950/20 shadow-2xl scale-100 lg:scale-105 z-10'
                     : 'bg-brand-bg text-brand-dark border border-brand-light/20 hover:shadow-xl hover:-translate-y-1'
                 }`}
               >

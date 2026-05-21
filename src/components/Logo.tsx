@@ -21,7 +21,9 @@ export default function Logo({ className = '', size = 48, showText = true, light
         alt="BowerKitchen Logo"
         className="transform transition-transform hover:rotate-6 duration-500 object-contain rounded-lg"
         style={{ width: size, height: size }}
-        loading="lazy"
+        loading="eager"
+        fetchPriority="high"
+        decoding="sync"
       />
 
       {showText && (

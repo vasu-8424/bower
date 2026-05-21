@@ -97,7 +97,7 @@ export default function DeliveryTimings() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto" id="timings-grid">
           
           {/* Card 1: Order Hours */}
-          <div className="glass-effect rounded-3xl p-8 border border-brand-light/25 bg-white text-center shadow-md flex flex-col justify-between">
+          <div className="glass-effect rounded-3xl p-6 sm:p-8 border border-brand-light/25 bg-white text-center shadow-md flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-brand-bg text-brand-primary flex items-center justify-center mx-auto mb-6">
                 <Clock className="w-6 h-6" />
@@ -115,7 +115,7 @@ export default function DeliveryTimings() {
           </div>
 
           {/* Card 2: Delivery Hours */}
-          <div className="glass-effect rounded-3xl p-8 border-2 border-brand-primary/20 bg-emerald-50 text-center shadow-lg flex flex-col justify-between transform scale-102">
+          <div className="glass-effect rounded-3xl p-6 sm:p-8 border-2 border-brand-primary/20 bg-emerald-50 text-center shadow-lg flex flex-col justify-between transform scale-100 md:scale-102">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-brand-primary text-white flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-6 h-6" />
@@ -133,7 +133,7 @@ export default function DeliveryTimings() {
           </div>
 
           {/* Card 3: 24/7 Availability */}
-          <div className="glass-effect rounded-3xl p-8 border border-brand-light/25 bg-white text-center shadow-md flex flex-col justify-between">
+          <div className="glass-effect rounded-3xl p-6 sm:p-8 border border-brand-light/25 bg-white text-center shadow-md flex flex-col justify-between">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-brand-bg text-brand-primary flex items-center justify-center mx-auto mb-6">
                 <Sparkles className="w-6 h-6" />

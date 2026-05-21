@@ -29,11 +29,11 @@ export default function CartDrawer() {
         onClick={() => setIsCartOpen(false)}
       ></div>
 
-      <div className="absolute inset-y-0 right-0 max-w-full flex pl-10" id="cart-drawer-panel">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between" id="cart-drawer-content">
+      <div className="absolute inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10" id="cart-drawer-panel">
+        <div className="w-full sm:w-screen sm:max-w-md bg-white shadow-2xl flex flex-col justify-between" id="cart-drawer-content">
           
           {/* Drawer Header */}
-          <div className="px-6 py-5 border-b border-brand-light/20 flex items-center justify-between bg-brand-bg">
+          <div className="px-4 py-4 sm:px-6 sm:py-5 border-b border-brand-light/20 flex items-center justify-between bg-brand-bg">
             <div className="flex items-center gap-2 text-brand-primary">
               <ShoppingBasket className="w-5 h-5 animate-bounce" />
               <h2 className="font-display font-extrabold text-base uppercase tracking-wider">
@@ -50,7 +50,7 @@ export default function CartDrawer() {
           </div>
 
           {/* Drawer Body - Items list */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 no-scrollbar">
             {cartItems.length === 0 ? (
               <div className="text-center py-20 flex flex-col items-center justify-center">
                 <span className="text-5xl">🛒</span>
@@ -85,7 +85,7 @@ export default function CartDrawer() {
                     return (
                       <div
                         key={ci.id}
-                        className="p-3.5 rounded-2xl bg-brand-bg/60 border border-brand-light/15 flex gap-4 items-stretch shadow-xs"
+                        className="p-2.5 sm:p-3.5 rounded-2xl bg-brand-bg/60 border border-brand-light/15 flex gap-3 sm:gap-4 items-stretch shadow-xs"
                       >
                         {/* Veggie Thumb */}
                         <div className="w-16 h-16 rounded-xl overflow-hidden bg-white shrink-0 shadow-xs border border-brand-light/10">
@@ -154,10 +154,10 @@ export default function CartDrawer() {
 
           {/* Drawer Footer - Checkouts */}
           {cartItems.length > 0 && (
-            <div className="p-6 border-t border-brand-light/20 bg-brand-bg" id="cart-drawer-checkout-footer">
+            <div className="p-4 sm:p-6 border-t border-brand-light/20 bg-brand-bg" id="cart-drawer-checkout-footer">
 
               {/* Informative help note */}
-              <div className="mb-4.5 p-3 rounded-xl bg-orange-50 text-[10px] text-orange-800 font-sans font-medium flex gap-2 items-start border border-orange-100">
+              <div className="mb-3.5 sm:mb-4.5 p-3 rounded-xl bg-orange-50 text-[10px] text-orange-800 font-sans font-medium flex gap-2 items-start border border-orange-100">
                 <Info className="w-4 h-4 shrink-0 text-orange-600 mt-0.5" />
                 <span>Complete your checkout and settle delivery and details directly with our coordinator on WhatsApp!</span>
               </div>

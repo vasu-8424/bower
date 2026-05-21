@@ -3,22 +3,38 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import AboutUs from './components/AboutUs';
-import ProductCatalog from './components/ProductCatalog';
-import ComboPacks from './components/ComboPacks';
-import Services from './components/Services';
-import OrderTimeline from './components/OrderTimeline';
-import DeliveryTimings from './components/DeliveryTimings';
-import ReviewSlider from './components/ReviewSlider';
-import Gallery from './components/Gallery';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
-import CartDrawer from './components/CartDrawer';
 import MobileBottomNav from './components/MobileBottomNav';
+
+// Lazy loading below-the-fold components
+const AboutUs = lazy(() => import('./components/AboutUs'));
+const ProductCatalog = lazy(() => import('./components/ProductCatalog'));
+const ComboPacks = lazy(() => import('./components/ComboPacks'));
+const Services = lazy(() => import('./components/Services'));
+const OrderTimeline = lazy(() => import('./components/OrderTimeline'));
+const DeliveryTimings = lazy(() => import('./components/DeliveryTimings'));
+const ReviewSlider = lazy(() => import('./components/ReviewSlider'));
+const Gallery = lazy(() => import('./components/Gallery'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+const Footer = lazy(() => import('./components/Footer'));
+const CartDrawer = lazy(() => import('./components/CartDrawer'));
+
+// Elegant HSL Organic loading placeholder spinner
+function BowerLoader() {
+  return (
+    <div className="w-full py-16 flex items-center justify-center min-h-[150px]" id="bower-skeleton-loader">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-8 h-8 rounded-full border-3 border-[#2E7D32]/15 border-t-[#2E7D32] animate-spin"></div>
+        <span className="font-sans font-bold text-[10px] text-[#2E7D32]/85 tracking-widest uppercase animate-pulse">
+          Sourcing Fresh...
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   return (
@@ -33,21 +49,52 @@ export default function App() {
         
         <main className="relative z-10" id="main-content-flow">
           <Hero />
-          <AboutUs />
-          <ProductCatalog />
-          <ComboPacks />
-          <Services />
-          <OrderTimeline />
-          <DeliveryTimings />
-          <ReviewSlider />
-          <Gallery />
-          <ContactSection />
+          
+          <Suspense fallback={<BowerLoader />}>
+            <AboutUs />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <ProductCatalog />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <ComboPacks />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <Services />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <OrderTimeline />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <DeliveryTimings />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <ReviewSlider />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <Gallery />
+          </Suspense>
+          
+          <Suspense fallback={<BowerLoader />}>
+            <ContactSection />
+          </Suspense>
         </main>
 
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
 
         {/* Absolute floating systems */}
-        <CartDrawer />
+        <Suspense fallback={null}>
+          <CartDrawer />
+        </Suspense>
         
         {/* Contextual mobile buttons & navigation rails */}
         <MobileBottomNav />

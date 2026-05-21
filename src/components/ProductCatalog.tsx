@@ -186,7 +186,7 @@ export default function ProductCatalog() {
           </div>
         ) : (
           <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6"
             id="product-cards-grid"
           >
             {filteredProducts.map((veggie) => {
@@ -194,7 +194,6 @@ export default function ProductCatalog() {
               const customSelectedUnit = productUnits[veggie.id] || portionOptions[1] || veggie.unit; // Default to second size
               const { displayUnit } = calculateRateByUnit(veggie, customSelectedUnit);
               const isJustAdded = justAddedId === veggie.id;
-              const colsClass = portionOptions.length === 5 ? 'grid-cols-5' : portionOptions.length === 3 ? 'grid-cols-3' : 'grid-cols-4';
 
               return (
                 <article
@@ -203,48 +202,49 @@ export default function ProductCatalog() {
                 >
                   <div>
                     {/* Upper cover photo area with badges */}
-                    <div className="relative h-44 overflow-hidden bg-emerald-50">
+                    <div className="relative h-28 xs:h-36 sm:h-44 overflow-hidden bg-emerald-50">
                       <img
                         src={veggie.image}
                         alt={veggie.name}
                         className="w-full h-full object-cover group-hover:scale-110 duration-700 transition-all"
                         loading="lazy"
+                        decoding="async"
                       />
 
                       {/* Overlapping glowing category label */}
-                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-brand-light font-sans font-bold text-[10px] tracking-wider uppercase">
+                      <span className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/50 backdrop-blur-md text-brand-light font-sans font-bold text-[9px] sm:text-[10px] tracking-wider uppercase">
                         {CATEGORIES.find((c) => c.id === veggie.category)?.name.split(' ')[1] || veggie.category}
                       </span>
 
                       {/* Best Seller/Popular tag overlay */}
                       {veggie.popular && (
-                        <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-amber-500/90 text-white font-sans font-extrabold text-[9px] uppercase tracking-widest flex items-center gap-1 shadow-sm">
-                          <Sparkles className="w-2.5 h-2.5 fill-white" /> Popular
+                        <span className="absolute top-2 right-2 sm:top-3 sm:right-3 px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-amber-500/90 text-white font-sans font-extrabold text-[8px] sm:text-[9px] uppercase tracking-widest flex items-center gap-0.5 sm:gap-1 shadow-sm">
+                          <Sparkles className="w-2 sm:w-2.5 h-2 sm:h-2.5 fill-white" /> Popular
                         </span>
                       )}
 
                       {/* Soft morning fresh badge bottom overlay */}
-                      <span className="absolute bottom-3 left-3 px-2 py-0.5 rounded-md bg-[#2E7D32]/90 backdrop-blur-sm text-white font-sans font-semibold text-[9px] uppercase tracking-widest leading-none">
+                      <span className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 px-1.5 sm:py-0.5 rounded-md bg-[#2E7D32]/90 backdrop-blur-sm text-white font-sans font-semibold text-[8px] sm:text-[9px] uppercase tracking-widest leading-none">
                         ● Morning Fresh
                       </span>
                     </div>
 
                     {/* Meta info block context */}
-                    <div className="p-5 pb-2">
-                      <h3 className="font-display font-extrabold text-base text-brand-dark group-hover:text-brand-primary transition-colors">
+                    <div className="p-3.5 sm:p-5 pb-2">
+                      <h3 className="font-display font-extrabold text-sm sm:text-base text-brand-dark group-hover:text-brand-primary transition-colors leading-tight">
                         {veggie.name}
                       </h3>
                       
                       {veggie.description && (
-                        <p className="font-sans text-xs text-brand-earth mt-1.5 leading-snug line-clamp-2 h-8">
+                        <p className="font-sans text-xs text-brand-earth mt-1 sm:mt-1.5 leading-snug line-clamp-2 h-8">
                           {veggie.description}
                         </p>
                       )}
 
                       {/* Interactive health/nutrition snippet */}
                       {veggie.nutrition && (
-                        <div className="mt-3 py-1.5 px-2.5 rounded-lg bg-emerald-50 text-[10px] text-brand-primary font-sans font-semibold flex items-center gap-1 border border-emerald-100">
-                          <span className="text-[12px]">🥗</span>
+                        <div className="mt-2 sm:mt-3 py-1 sm:py-1.5 px-1.5 sm:px-2.5 rounded-lg bg-emerald-50 text-[9px] sm:text-[10px] text-brand-primary font-sans font-semibold flex items-center gap-1 border border-emerald-100">
+                          <span className="text-[10px] sm:text-[12px]">🥗</span>
                           <span className="truncate">{veggie.nutrition}</span>
                         </div>
                       )}
@@ -252,14 +252,14 @@ export default function ProductCatalog() {
                   </div>
 
                   {/* Pricing and portion size toggles footer body */}
-                  <div className="p-5 pt-0 mt-2">
+                  <div className="p-3.5 sm:p-5 pt-0 mt-1 sm:mt-2">
                     
                     {/* Portion togglers */}
-                    <div className="mb-4">
-                      <span className="font-sans text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                    <div className="mb-3.5 sm:mb-4">
+                      <span className="font-sans text-[9px] sm:text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
                         Choose Quantity Size:
                       </span>
-                      <div className={`grid ${colsClass} gap-1 mt-1 bg-white/20 backdrop-blur-xs p-1 rounded-lg border border-white/30`}>
+                      <div className="flex flex-wrap gap-1 mt-1 bg-white/20 backdrop-blur-xs p-1 rounded-lg border border-white/30">
                         {portionOptions.map((opt) => {
                           const isOptActive = customSelectedUnit === opt;
                           return (
@@ -269,10 +269,10 @@ export default function ProductCatalog() {
                                 e.stopPropagation();
                                 setProductUnits((prev) => ({ ...prev, [veggie.id]: opt }));
                               }}
-                              className={`py-1 rounded-md text-[9px] font-sans font-extrabold transition-all outline-none cursor-pointer ${
+                              className={`py-1 px-1 sm:px-1.5 rounded-md text-[8px] sm:text-[9px] font-sans font-extrabold transition-all outline-none cursor-pointer grow text-center ${
                                 isOptActive
                                   ? 'glass-btn-solid-green text-white shadow-xs'
-                                  : 'text-brand-dark/60 hover:text-brand-primary bg-white/30 hover:bg-white/60'
+                                  : 'text-brand-dark/70 hover:text-brand-primary bg-white/30 hover:bg-white/60'
                               }`}
                               aria-label={`Select ${opt}`}
                             >
@@ -284,8 +284,8 @@ export default function ProductCatalog() {
                     </div>
 
                     {/* Final CTA Purchase block */}
-                    <div className="pt-3 border-t border-brand-light/20 flex flex-col gap-2">
-                      <div className="flex justify-between items-center text-[10px] font-sans font-bold text-brand-earth">
+                    <div className="pt-2 sm:pt-3 border-t border-brand-light/20 flex flex-col gap-2">
+                      <div className="flex justify-between items-center text-[9px] sm:text-[10px] font-sans font-bold text-brand-earth">
                         <span>Selected Size:</span>
                         <span className="text-brand-primary uppercase">{displayUnit}</span>
                       </div>
@@ -293,7 +293,7 @@ export default function ProductCatalog() {
                       {/* Add directly trigger card button */}
                       <button
                         onClick={() => handleAddToCartClick(veggie)}
-                        className={`w-full py-3 rounded-xl font-sans font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer pointer-events-auto ${
+                        className={`w-full py-2.5 sm:py-3 rounded-xl font-sans font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer pointer-events-auto ${
                           isJustAdded
                             ? 'bg-amber-500/90 text-white animate-bounce border border-white/20 backdrop-blur-md'
                             : 'glass-btn-primary'

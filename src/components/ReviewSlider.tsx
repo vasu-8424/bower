@@ -10,6 +10,12 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 export default function ReviewSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Touch swiping state variables
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
   // Set up autoplay slide effects
   useEffect(() => {
     const timer = setInterval(() => {
@@ -24,6 +30,28 @@ export default function ReviewSlider() {
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  };
+
+  // Touch handlers to process touchscreen swipes
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrev();
+    }
   };
 
   return (
@@ -47,9 +75,15 @@ export default function ReviewSlider() {
         </div>
 
         {/* Carousel Slider Panel */}
-        <div className="max-w-4xl mx-auto relative px-4" id="testimonials-carousel">
+        <div
+          className="max-w-4xl mx-auto relative px-4 select-none touch-pan-y"
+          id="testimonials-carousel"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           
-          <div className="overflow-hidden relative min-h-[300px] sm:min-h-[240px] flex items-center justify-center">
+          <div className="overflow-hidden relative min-h-[360px] xs:min-h-[300px] sm:min-h-[240px] flex items-center justify-center">
             {TESTIMONIALS.map((review, idx) => {
               const isActive = idx === activeIndex;
               return (

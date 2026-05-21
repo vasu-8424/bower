@@ -76,6 +76,7 @@ export default function Gallery() {
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-105 duration-500 transition-transform"
                 loading="lazy"
+                decoding="async"
               />
               
               {/* Glass subtle gradient overlay */}
